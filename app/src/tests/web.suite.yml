@@ -1,0 +1,72 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - Filesystem
+    config:
+                WebDriver:
+                          url: https://cyberft-ci.cyberplat.com:643
+                          #url: https://192.168.6.38:1443
+                          browser: 'firefox'
+                          wait: 5
+                          window_size: maximize
+                          host: cyberft-ci.cyberplat.com
+                          #host: 192.168.6.38
+                          port: 32773
+                          #clear_cookies: true
+                          #restart: true
+                          request_timeout: 30
+                          pageload_timeout: 30
+                          capabilities:
+                                      'acceptInsecureCerts': true
+                                      'acceptSslCerts': true
+                                      'timeouts':
+                                                   'implicit': 0.0
+                                                   'pageLoad': 900000.0
+                                                   'script': 900000.0
+env:
+    chrome:
+         modules:
+            config:
+                WebDriver:
+                          url: https://cyberft-ci.cyberplat.com:643
+                          #url: https://192.168.6.38:643
+                          wait: 5
+                          window_size: maximize
+                          host: cyberft-ci.cyberplat.com
+                          #host: 192.168.6.38
+                          port: 32773
+                          #clear_cookies: true
+                          #restart: true
+                          request_timeout: 30
+                          pageload_timeout: 30
+                          capabilities:
+                                      'acceptInsecureCerts': true
+                                      'acceptSslCerts': true
+                                      'timeouts':
+                                                   'implicit': 0.0
+                                                   'pageLoad': 900000.0
+                                                   'script': 900000.0
+
+    firefox:
+         modules:
+            config:
+                WebDriver:
+                          url: https://cyberft-ci.cyberplat.com:643
+                          #url: https://192.168.6.38:643
+                          wait: 5
+                          window_size: maximize
+                          host: cyberft-ci.cyberplat.com
+                          #host: 192.168.6.38
+                          port: 32773
+                          #clear_cookies: true
+                          #restart: true
+                          request_timeout: 30
+                          pageload_timeout: 30
+                          capabilities:
+                                      'acceptInsecureCerts': true
+                                      'acceptSslCerts': true
+                                      'timeouts':
+                                                   'implicit': 0.0
+                                                   'pageLoad': 900000.0
+                                                   'script': 900000.0

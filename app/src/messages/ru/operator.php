@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'Operators' => 'Операторы',
+    'Operator' => 'Оператор',
+    'Create operator' => 'Создать оператора',
+    'active' => 'активен',
+    'deleted' => 'удален',
+    'Name' => 'Имя',
+    'Role' => 'Роль',
+    'Participant' => 'Участник',
+    'Participant Swift code' => 'Swift-код участника',
+    'Terminal code' => 'Код терминала',
+    'Position' => 'Должность',
+    'Phone' => 'Телефон',
+    'Email' => 'Адрес электронной почты',
+    'External code' => 'Внешний идентификатор',
+    'Access to documents of any type' => 'Полный доступ к типам документов',
+    'New operator' => 'Новый оператор',
+    'Update operator' => 'Редактирование оператора',
+    'Operator is created, <a href="{addKeyUrl}">add key</a>' => 'Оператор создан, <a href="{addKeyUrl}">добавить ключ</a>',
+    'Operator is updated' => 'Оператор сохранен',
+    'Operator is deleted' => 'Оператор удален',
+    'Add key' => 'Добавить ключ',
+    'Participant operators "{participantName}" ({participantCode})' => 'Операторы участника "{participantName}" ({participantCode})',
+];

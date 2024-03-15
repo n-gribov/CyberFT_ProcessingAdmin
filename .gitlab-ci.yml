@@ -1,0 +1,39 @@
+stages:
+  - test
+  - cleanup
+  - deploy
+test:
+  stage: test
+  before_script:
+  - make uninstall
+  script:
+  - make test
+  - ./app/utils/test_coverage/run_tests.sh
+  environment: dev
+  tags:
+    - processing-test
+cleanup_build:
+  stage: cleanup
+  script:
+  - rm -rf ouput
+  - mkdir output
+  - cp -R $OUTPUT_CI_PATH output
+  - docker rm -f $DOCKER_CONTAINER_NAME
+  when: on_failure
+  artifacts:
+    paths:
+      - output
+    expire_in: 1 hour
+  tags:
+    - processing-test
+deploy:
+    stage: deploy
+    script:
+      - ssh root@cft-admin.microsoft.platina.ru 'bash -s' < ./docker/scripts/rc_deploy.sh  /home/fwww/cyberft-processing-admin/ $CI_BUILD_REF $CI_BUILD_REF_NAME
+    when: manual
+    only:
+      - /^rc-.*/
+    environment: PRODUCTION/cft-admin
+    allow_failure: false
+    tags:
+      - processing-deploy

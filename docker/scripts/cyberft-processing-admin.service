@@ -1,0 +1,17 @@
+[Unit]
+Description=Docker Container - cyberft-processing-admin
+Requires=docker.service
+After=docker.service
+ConditionPathExists=!/etc/docker/containers_not_to_be_run
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+EnvironmentFile=-/home/fwww/cyberft-processing-admin/.env
+ExecStart=/home/fwww/cyberft-processing-admin/docker/scripts/start.sh
+ExecStop=/home/fwww/cyberft-processing-admin/docker/scripts/stop.sh
+ExecReload=/home/fwww/cyberft-processing-admin/docker/scripts/restart.sh
+
+[Install]
+WantedBy=multi-user.target

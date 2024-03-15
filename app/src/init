@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+
+$envParams = [];
+$envParams['YII_DEBUG'] = 'true';
+$envParams['YII_ENV'] = 'prod';
+
+$envContent = '';
+
+echo "Инициализация приложения\n\n";
+
+echo "Данные для подключения к БД: \n\n";
+
+setAnswer('DB_DATA_SOURCE', 'DB_DATA_SOURCE', $envParams);
+
+$envParams['DEFAULT_LANGUAGE'] = 'ru';
+
+$envParams['COOKIE_VALIDATION_KEY'] = setCookieValidationKey();
+
+foreach ($envParams as $envParam => $envValue) {
+    $envContent .= "{$envParam}={$envValue}\n";
+}
+
+file_put_contents('/var/www/app/src/.env', $envContent);
+
+function setAnswer($question, $param, &$envs)
+{
+    echo "$question:\n";
+    $answer = trim(fgets(STDIN));
+    $envs[$param] = $answer;
+    echo "\n";
+}
+
+function setCookieValidationKey()
+{
+    $length = 32;
+    $bytes = openssl_random_pseudo_bytes($length);
+    return strtr(substr(base64_encode($bytes), 0, $length), '+/=', '_-.');
+}

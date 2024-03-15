@@ -1,0 +1,29 @@
+#documents-stats .col-3 {
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    padding-left: 27px;
+}
+#documents-stats {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#documents-stats .category-header {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+#documents-stats .delivered {
+    color: rgb(75, 192, 192);
+}
+#documents-stats .pending {
+    color: rgb(255, 205, 86);
+}
+#documents-stats .failed {
+    color: rgb(255, 99, 132);
+}
+.statistics-documents hr {
+    margin: 3rem 0;
+}
+.statistics-documents .sub-header {
+    padding-left: 10px;
+    color: #333;
+}

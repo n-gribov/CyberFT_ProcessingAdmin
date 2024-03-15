@@ -1,0 +1,26 @@
+# phpstorm project files
+.idea
+*.iml
+
+# netbeans c
+nbproject
+
+# vscode project files
+.vscode
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+/docker/*.tar.gz
+.env
+docker/image/tmp/*
+docker/image/tmp/
+app/src/.env

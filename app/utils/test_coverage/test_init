@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+$envParams = [];
+$envParams['YII_DEBUG'] = 'true';
+$envParams['YII_ENV'] = 'prod';
+
+$envContent = '';
+
+echo "Тестовая Инициализация приложения\n\n";
+
+$envParams['DB_DATA_SOURCE'] = 'pgsql:service=TEST_PCFT';
+$envParams['PGSERVICEFILE'] = '/etc/pgsysconfdir/pg_service.conf';
+$envParams['DEFAULT_LANGUAGE'] = 'ru';
+$envParams['COOKIE_VALIDATION_KEY'] = setCookieValidationKey();
+
+
+foreach ($envParams as $envParam => $envValue) {
+    $envContent .= "{$envParam}={$envValue}\n";
+}
+
+file_put_contents('/var/www/app/src/.env', $envContent);
+
+function setAnswer($question, $param, &$envs)
+{
+    echo "$question:\n";
+    $answer = trim(fgets(STDIN));
+    $envs[$param] = $answer;
+    echo "\n";
+}
+
+function setCookieValidationKey()
+{
+    $length = 32;
+    $bytes = openssl_random_pseudo_bytes($length);
+    return strtr(substr(base64_encode($bytes), 0, $length), '+/=', '_-.');
+}
+echo "Прошла успешно\n\n";

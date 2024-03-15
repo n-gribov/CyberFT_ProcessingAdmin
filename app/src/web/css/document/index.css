@@ -1,0 +1,17 @@
+#resend-results ul {
+    list-style-position: inside;
+    margin: 0;
+    padding-left: 0;
+}
+
+#type-filter-modal .modal-body {
+    min-height: 200px;
+}
+
+#type-filter-modal .select2-container--krajee .select2-selection--multiple .select2-selection__choice {
+    padding: 2px 6px;
+}
+
+#type-filter-modal .select2-container--krajee .select2-selection--multiple .select2-selection__choice__remove {
+    line-height: 0.65;
+}
